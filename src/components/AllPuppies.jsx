@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PuppyCards from "./PuppyCards";
-import AddPlayerForm from "./AddPlayerForm";
-import SinglePuppy from "./SinglePuppy";
+import SinglePuppy from './SinglePuppy'
+import { Route, Routes} from "react-router-dom";
 
 const API_URL = `https://fsa-puppy-bowl.herokuapp.com/api/2402-FTB-ET-WEB-FT`;
 
@@ -24,17 +24,13 @@ const AllPuppies = () => {
       setNeedsUpdate(false);
     }
   }, []);
-  console.log(puppyList)
+  console.log(puppyList);
   return (
     <>
-      {puppyList.length ? (
-        <>
-          <AddPlayerForm />
-          <PuppyCards puppyList={puppyList} setPuppyList={setPuppyList}/>
-        </>
-      ) : (
-        <SinglePuppy puppyList={puppyList} setPuppyList={setPuppyList}/>
-      )}
+      <Routes>
+        <Route path="/" element={<PuppyCards puppyList={puppyList} setPuppyList={setPuppyList} />}></Route>
+        <Route path='/:puppyId' element ={<SinglePuppy puppyList={puppyList}/>}></Route>
+      </Routes>
     </>
   );
 };
