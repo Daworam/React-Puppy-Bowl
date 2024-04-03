@@ -1,14 +1,16 @@
 import "./App.css";
 import AddPlayerForm from "./AddPlayerForm";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 
-const PuppyCards = ({ puppyList, fetchPuppies }) => {
+const PuppyCards = ({ puppyList, fetchPuppies, setPuppyList }) => {
   const API_URL_ID = `https://fsa-puppy-bowl.herokuapp.com/api/2402-FTB-ET-WEB-FT/players`;
   const navigate= useNavigate();
 
   return (
     <>
+      <SearchBar puppyList={puppyList} setPuppyList={setPuppyList}/>
       <AddPlayerForm fetchPuppies={fetchPuppies}/>
       <section className="main">
         {puppyList.map((puppy) => {
