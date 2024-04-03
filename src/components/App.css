@@ -35,3 +35,7 @@ button {
 body {
   text-align: center;
 }
+
+.singleContainer {
+  background-color: brown;
+}

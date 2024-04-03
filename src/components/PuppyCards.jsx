@@ -3,13 +3,13 @@ import AddPlayerForm from "./AddPlayerForm";
 import { useNavigate } from "react-router-dom";
 
 
-const PuppyCards = ({ puppyList, setPuppyList }) => {
+const PuppyCards = ({ puppyList, fetchPuppies }) => {
   const API_URL_ID = `https://fsa-puppy-bowl.herokuapp.com/api/2402-FTB-ET-WEB-FT/players`;
   const navigate= useNavigate();
 
   return (
     <>
-      <AddPlayerForm/>
+      <AddPlayerForm fetchPuppies={fetchPuppies}/>
       <section className="main">
         {puppyList.map((puppy) => {
           return (
@@ -23,6 +23,7 @@ const PuppyCards = ({ puppyList, setPuppyList }) => {
                     const response = await fetch(`${API_URL_ID}/${puppy.id}`, {
                       method: "DELETE",
                     });
+                    await fetchPuppies();
                   } catch (error) {
                     alert("Error deleting puppy");
                   }

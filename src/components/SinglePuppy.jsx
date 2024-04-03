@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
+import './App.css'
 const SINGLE_API = `https://fsa-puppy-bowl.herokuapp.com/api/2402-FTB-ET-WEB-FT/players`
 
 
@@ -16,12 +17,14 @@ const SinglePuppy = () => {
   fetchSinglePuppy()
   return(
     <>
-      <h1>{singlePup.name}</h1>
-      <h2>{singlePup.id}</h2>
-      <img src={singlePup.imageUrl} className="pupImage"/>
-      <h2>{singlePup.breed}</h2>
-      <h2>{singlePup.status}</h2>
-      <button onClick={()=>{navigate('/')}}>Back</button>
+      <div className="singleContainer">
+        <h2>{singlePup.name}</h2>
+        <h3>Id: {singlePup.id}</h3>
+        <img src={singlePup.imageUrl} className="pupImage"/>
+        <h3>Breed: {singlePup.breed}</h3>
+        <h3>Status: {singlePup.status}</h3>
+        <button onClick={()=>{navigate('/')}}>Back</button>
+      </div>
     </>
   )
 }

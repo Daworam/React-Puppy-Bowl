@@ -1,7 +1,7 @@
 import { useState } from "react"
 const API_BASE_URL = `https://fsa-puppy-bowl.herokuapp.com/api/2402-FTB-ET-WEB-FT/players`
 
-const AddPlayerForm = () => {
+const AddPlayerForm = ({fetchPuppies}) => {
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
   const [imageUrl, setImage] = useState("");
@@ -21,6 +21,7 @@ const AddPlayerForm = () => {
       setName("");
       setBreed("");
       setImage("");
+      await fetchPuppies();
       const result = await response.json();
     }catch(error){
       alert("Error Posting Player")
