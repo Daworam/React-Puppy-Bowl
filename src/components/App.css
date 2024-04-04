@@ -39,3 +39,12 @@ body {
 .singleContainer {
   background-color: brown;
 }
+
+.search {
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.addPlayer {
+  margin-bottom: 5px;
+}

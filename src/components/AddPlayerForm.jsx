@@ -36,7 +36,7 @@ const AddPlayerForm = ({ fetchPuppies }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="addPlayer">
         <input
           placeholder="Name"
           id="name"

@@ -28,11 +28,11 @@ const AllPuppies = () => {
 
   return (
     <>
+      <AddPlayerForm fetchPuppies={fetchPuppies} />
       <SearchBar
         puppyList={puppyList}
         setDisplayPuppyList={setDisplayPuppyList}
       />
-      <AddPlayerForm fetchPuppies={fetchPuppies} />
       <Routes>
         <Route
           path="/"

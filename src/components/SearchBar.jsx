@@ -12,14 +12,17 @@ const SearchBar = ({ puppyList, setDisplayPuppyList }) => {
 
   return (
     <>
-      <input
-        type="text"
-        placeholder="Search Puppies:"
-        value={searchPuppy}
-        onChange={(e) => {
-          setSearchPuppy(e.target.value);
+      <label className="searchLabel">Search Puppies:
+        <input
+          className="search"
+          type="text"
+          placeholder="Search Puppies:"
+          value={searchPuppy}
+          onChange={(e) => {
+            setSearchPuppy(e.target.value);
         }}
       />
+      </label>
     </>
   );
 };
