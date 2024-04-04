@@ -1,23 +1,22 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-const SearchBar = ({puppyList, setPuppyList}) => {
-
+const SearchBar = ({puppyList, setDisplayPuppyList}) => {
   const [searchPuppy, setSearchPuppy] = useState('');
-  const [filteredPuppies, setFilteredPuppies] = useState([puppyList])
 
-  const filterPup = (e) => {
-    e.preventDefault()
-    setSearchPuppy(e.target.value)
-    }
+useEffect(()=>{
+  const filteredList = puppyList.filter((puppy)=>{
+    return puppy.name.toLowerCase().includes(searchPuppy.toLowerCase());
+  });
+  setDisplayPuppyList(filteredList);
+},[searchPuppy])
 
   return(
     <>
-      <form>
-        <label>Search:
-        <input type="text" placeholder="Enter Puppy Name" onChange={filterPup}/>
-        </label>
-      </form>
-      <h1>{filteredPuppies.name}</h1>
+        <input 
+          type="text" 
+          placeholder="Search Puppies:" 
+          value={searchPuppy}
+          onChange={(e)=>{setSearchPuppy(e.target.value)}}/>
     </>
   )
 
