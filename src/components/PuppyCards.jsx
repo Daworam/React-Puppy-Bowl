@@ -1,11 +1,9 @@
 import "./App.css";
 import { useNavigate } from "react-router-dom";
 
-
-
-const PuppyCards = ({ puppyList, fetchPuppies, displayPuppyList }) => {
+const PuppyCards = ({ fetchPuppies, displayPuppyList }) => {
   const API_URL_ID = `https://fsa-puppy-bowl.herokuapp.com/api/2402-FTB-ET-WEB-FT/players`;
-  const navigate= useNavigate();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -32,7 +30,9 @@ const PuppyCards = ({ puppyList, fetchPuppies, displayPuppyList }) => {
               </button>
               <button
                 className="detailsButton"
-                onClick={()=>{navigate(`/${puppy.id}`)}}
+                onClick={() => {
+                  navigate(`/${puppy.id}`);
+                }}
               >
                 Click for Details!
               </button>
