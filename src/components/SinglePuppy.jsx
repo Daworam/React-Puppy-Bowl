@@ -19,7 +19,7 @@ const SinglePuppy = () => {
       <div className="singleContainer">
         <h2>{singlePup.name}</h2>
         <h3>Id: {singlePup.id}</h3>
-        <img src={singlePup.imageUrl}/>
+        <img src={singlePup.imageUrl} className="singleImage"/>
         <h3>Breed: {singlePup.breed}</h3>
         <h3>Status: {singlePup.status}</h3>
         <button

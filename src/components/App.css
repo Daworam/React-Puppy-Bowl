@@ -48,3 +48,7 @@ body {
 .addPlayer {
   margin-bottom: 5px;
 }
+
+.singleImage {
+  max-height: 500px;
+}
